@@ -105,7 +105,7 @@ internal sealed class Trx2JunitTestConverter : ITestConverter<TrxTest, JUnitTest
                 {
                     Message    = trxUnitTestResult.Message ?? "",        // Message is allowed to be null
                     Type       = "not specified",
-                    StackTrace = trxUnitTestResult.StackTrace,
+                    StackTrace = $"{(string.IsNullOrEmpty(trxUnitTestResult.Message) ? $"MESSAGE:[{trxUnitTestResult.Message}] " : "")}{trxUnitTestResult.StackTrace}",
                 };
             }
 
